@@ -1,0 +1,34 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Jersey+10+Charted&family=Jersey+15&family=Jersey+20+Charted&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+</head>
+<body id="background">
+  <div class="log-form">
+    <h2 id="ingresar">Ingresa a tu cuenta</h2>
+    <form (ngSubmit)="login()" class="form">
+      <div class="form-group">
+        <input type="text" name="mail" title="usuario" placeholder="Mail" [(ngModel)]="usuario.mail" />
+      </div>
+      <div class="form-group">
+        <input type="password" name="clave" title="clave" placeholder="Clave" [(ngModel)]="usuario.clave" />  
+      </div>
+
+      <div class="container">
+        <button class="btn-registro" type="submit" (click)="registrarse()">No tenes usuario? Registrate</button>
+        <span>|</span>
+        <button class="btn-invitado" type="submit" (click)="entrarComoInvitado()">Entrar como invitado</button>  
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn">💟 Continuar 💟</button>
+      </div>
+      <div *ngIf="loginExitoso == 0" class="error">
+          <div class="alert alert-danger" style="margin-top: 15px; font-size: 15px;">
+            No se reconoce la combinacion entre usuario y clave.
+          </div>
+      </div>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>

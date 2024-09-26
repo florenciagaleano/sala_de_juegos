@@ -1,0 +1,30 @@
+<button *ngIf="!esInvitado" (click)="abrirChat()" class="btn-chat">
+</button>
+
+<div *ngIf="chat" class="chat-box">
+  <div class="message-box">
+    <div *ngFor="let mensaje of mensajes">
+      <div *ngIf="mensaje.usuario === usuarioActual" class="first-chat-container">
+        <div class="first-chat">
+          <p class="encabezado_msj propio">{{ formatearFecha(mensaje.fecha.toDate()) }}</p>
+          <p>{{ mensaje.mensaje }}</p>
+          <div class="arrow"></div>
+        </div>
+      </div>
+      <div *ngIf="mensaje.usuario !== usuarioActual" class="second-chat-container">
+        <div class="second-chat">
+          <p class="encabezado_msj ajeno">{{ formatearFecha(mensaje.fecha.toDate()) }} | {{mensaje.usuario}}</p>
+          <div class="circle"></div>
+          <p>{{ mensaje.mensaje }}</p>
+          <div class="arrow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="input-box">
+    <div class="write-reply">
+      <input class="inputText" type="text" placeholder="Responder..." [(ngModel)]="nuevoMensaje" />
+      <button class="send-button" (click)="enviarMensaje(nuevoMensaje)"></button>
+    </div>
+  </div>
+</div>

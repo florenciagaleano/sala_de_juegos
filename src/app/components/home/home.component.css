@@ -1,0 +1,82 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing:border-box;
+  }
+
+#juegos-titulo{
+    text-align: center;
+    padding-top: 30px;
+    font-size: 50px;
+    font-family: "Source Code Pro", monospace;
+    color: white;
+}
+
+  
+#background {
+    width: 100%;
+    height: 100vh;
+    background-size:cover;
+    background-image: url(../../../assets/login-desktop2.jpg);
+    background-repeat: no-repeat;
+  }
+  
+
+ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(4 ,1fr);
+    padding: 100px;
+    grid-gap: 25px;
+    position: relative;
+}
+
+li {
+    position: relative;
+    overflow: hidden;
+    margin: 0 15px 15px 0;
+    cursor: pointer;
+    transition: all 300ms;
+    overflow: hidden;
+    border: 5px groove #97087b;
+
+}
+
+li img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+li:hover{
+    transform: scale(1.05)
+}
+
+li:hover .info {
+    display: block;
+}
+
+li:hover img{
+    opacity: 0.8;
+}
+
+.info {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    padding: 10px;
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-weight: bold;
+    background-color: rgba(255, 192, 203, 0.5);
+    font-size: 25px;
+    font-family: "Source Code Pro", monospace;
+    color: white;
+
+}

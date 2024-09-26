@@ -1,0 +1,69 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Jersey+10+Charted&family=Jersey+15&family=Jersey+20+Charted&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body id="background">
+  <h1>Hace click en los circulos!</h1>
+  <div *ngIf="!gano && !perdio">
+    <div class="clk_box">
+      <div class="clk_area" id="aimarea" (click)="ClickFueraDeObjetivo($event)">
+        <div
+          id="target"
+          (click)="ClickEnObjetivo()"
+          [style]="objetivosAleatorios"
+          [ngClass]="classObjetivo"
+        ></div>
+
+        <button id="start" (click)="IniciarJuego()" [style]="comenzarJuego">
+          Haz clic aquí para probar tu puntería
+        </button>
+      </div>
+    </div>
+    <div class="row" id="intentos">
+      <div class="col text-center">
+        <h3>
+          Intentos: <small>{{ intentosFallidos }}</small><span> | </span> Contador: {{ contador }}
+        </h3>
+      </div>
+    </div>
+    <div class="desc_juego">
+      Instrucciones: hay que hacerle click a los circulitos, si haces click afuera
+      del circulo o tardas mucho perdes una vida, tenes 3 vidas. Si acertas 30
+      veces y no perdes todas las vidas ganas :)
+    </div>
+  
+  </div>
+  <div class="row" *ngIf="gano" id="gano">
+    <div class="col text-center">
+      <h1>Ganaste! 🤗</h1>
+      <div class="container">
+        <button type="submit" (click)="goTo('home')">Ir a home</button>
+        <span>|</span>
+        <button type="submit" (click)="goTo()">Volver a jugar</button>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="perdio" id="perdio">
+    <div class="col text-center">
+      <h1>Perdiste 💔</h1>
+      <div class="container">
+        <button type="submit" (click)="goTo('home')">Ir a home</button>
+        <span>|</span>
+        <button type="submit" (click)="IniciarJuego()">Volver a jugar</button>
+      </div>
+    </div>
+  </div>
+
+  <app-logout></app-logout>
+  <app-chat></app-chat>
+</body>

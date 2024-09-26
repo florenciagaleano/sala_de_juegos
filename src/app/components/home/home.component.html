@@ -1,0 +1,36 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Jersey+10+Charted&family=Jersey+15&family=Jersey+20+Charted&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+</head>
+<body id="background">
+    <h3 id="juegos-titulo">✨Juegos✨</h3>
+    <ul id="juegos">
+        <li>
+            <img src="../../../assets/aparato.jpg" (click)="irAJuego('ahorcado')">
+            <div class="info">
+                <p>AHORCADO</p>
+            </div>
+        </li>
+        <li>
+            <img src="../../../assets/calculadora.jpg" (click)="irAJuego('cartas')">
+            <div class="info">
+                <p>MAYOR O MENOR</p>
+            </div>
+        </li>
+        <li>
+            <img src="../../../assets/maquinita.jpg" (click)="irAJuego('preguntados')">
+            <div class="info">
+                <p>PREGUNTADOS</p>
+            </div>
+        </li>
+        <li>
+            <img src="../../../assets/maquina-munecos.jpg" (click)="irAJuego('punteria')">
+            <div class="info">
+                <p>PUNTERIA</p>
+            </div>
+        </li>
+    </ul>   
+    <app-logout></app-logout> 
+    <app-chat></app-chat>
+</body>

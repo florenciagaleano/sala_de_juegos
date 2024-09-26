@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgxTouchKeyboardModule }  from 'ngx-touch-keyboard';
 import { LogoutComponent } from '../navbar/logout.component';
 import { ChatComponent } from '../chat/chat.component';
 import { Router } from '@angular/router';
@@ -10,7 +9,6 @@ import { Router } from '@angular/router';
   selector: 'app-ahorcado',
   standalone: true,
   imports: [
-    NgxTouchKeyboardModule,
     FormsModule,
     CommonModule,
     LogoutComponent,

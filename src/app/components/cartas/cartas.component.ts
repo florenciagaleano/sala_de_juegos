@@ -2,14 +2,15 @@ import { Component } from '@angular/core';
 import { CartasService } from '../../services/cartas/cartas.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { LogoutComponent } from '../navbar/logout.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 import { ChatComponent } from '../chat/chat.component';
 import { Router } from '@angular/router';
+import { PuntajeService } from '../../services/puntaje/puntaje.service';
 
 @Component({
   selector: 'app-cartas',
   standalone: true,
-  imports: [FormsModule,CommonModule,LogoutComponent,ChatComponent],
+  imports: [FormsModule,CommonModule,NavbarComponent,ChatComponent],
   templateUrl: './cartas.component.html',
   styleUrl: './cartas.component.css'
 })
@@ -22,7 +23,9 @@ export class CartasComponent {
   perdio = false;
   gano = false;
   contador = 0;
-  constructor(private cardService: CartasService, private router : Router) { }
+  cartasMostradas : Set<any> = new Set();
+
+  constructor(private cardService: CartasService, private router : Router, private puntajeService: PuntajeService) { }
 
   ngOnInit(): void {
     this.getNewCard();
@@ -65,6 +68,8 @@ export class CartasComponent {
       this.perdio = true;
     }else if(this.contador == 10){
       this.gano = true;
+      this.puntajeService.guardarPuntos("Cartas", (9 - this.intentos).toString()); //guardo la cantidad de vidas que quedaron como puntos
+
     }
 
     this.currentCard = this.nextCard;

@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { LogoutComponent } from '../navbar/logout.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 import { ChatComponent } from '../chat/chat.component';
 import { Router } from '@angular/router';
+import { PuntajeService } from '../../services/puntaje/puntaje.service';
 
 @Component({
   selector: 'app-ahorcado',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   imports: [
     FormsModule,
     CommonModule,
-    LogoutComponent,
+    NavbarComponent,
     ChatComponent
   ],
   providers: [],
@@ -29,6 +30,7 @@ export class AhorcadoComponent {
   perdio = false;
   intentosFallidos = "💗 💗 💗 💗 💗 💗 ";
   imagenAhorcado = '../../../assets/ahorcado/ahorcado_0.png';
+  presionadas: Set<string> = new Set();
   letras = [
     "a",
     "b",
@@ -58,7 +60,7 @@ export class AhorcadoComponent {
     "z"
   ];
 
-  constructor(private router : Router){}
+  constructor(private router : Router, private puntajeService : PuntajeService){}
 
   enviarLetra(letra : string) {
     if (/^[a-zA-Z]$/.test(this.letra)) {
@@ -78,6 +80,7 @@ export class AhorcadoComponent {
         palabraOcultaArreglo[i] = letra;
       }
     }
+    this.presionadas.add(letra);
     this.palabraOculta = palabraOcultaArreglo.join(" ");
     this.verificaGanador();
     this.actualizarVidas();
@@ -86,10 +89,10 @@ export class AhorcadoComponent {
   verificaGanador() {
     const palabraArr = this.palabraOculta.split(" ");
     const palabraEvaluar = palabraArr.join("");
-    this.intentosFallidos
     if (palabraEvaluar === this.palabra) {
       this.gano = true;
       console.log("Usuario GANO");
+      this.puntajeService.guardarPuntos("Ahorcado", (6 - this.intentos).toString()); //guardo la cantidad de vidas que quedaron como puntos
     }
     if (this.intentos === 6) {
       this.perdio = true;
@@ -128,6 +131,6 @@ export class AhorcadoComponent {
     this.intentosFallidos = "💗 💗 💗 💗 💗 💗 💗 💗 💗 ";
     this.palabraOculta = "_ ".repeat(this.palabra.length);
     this.imagenAhorcado = '../../../assets/ahorcado/ahorcado_0.png';
-
+    this.presionadas.clear();
   }
 }

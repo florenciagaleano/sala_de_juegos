@@ -23,7 +23,7 @@
   </div>
   <div class="input-box">
     <div class="write-reply">
-      <input class="inputText" type="text" placeholder="Responder..." [(ngModel)]="nuevoMensaje" />
+      <input class="inputText" type="text" placeholder="Responder..." [(ngModel)]="nuevoMensaje" (keyup.enter)="enviarMensaje(nuevoMensaje)"/>
       <button class="send-button" (click)="enviarMensaje(nuevoMensaje)"></button>
     </div>
   </div>

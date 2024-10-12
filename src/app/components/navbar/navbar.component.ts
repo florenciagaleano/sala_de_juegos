@@ -2,16 +2,19 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-logout',
+  selector: 'app-navbar',
   standalone: true,
-  imports: [FormsModule],
-  templateUrl: './logout.component.html',
-  styleUrl: './logout.component.css'
+  imports: [FormsModule,CommonModule],
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.css'
 })
 
-export class LogoutComponent {
+export class NavbarComponent {
+
+  esHome : boolean = this.router.url == '/home';
 
   constructor(private authService : AuthService, private router: Router) {}
 
@@ -22,6 +25,11 @@ export class LogoutComponent {
   
   goTo(ruta : string) {
     this.router.navigate([ruta]);
+  }
+
+  irAHome(){
+    this.router.navigate(["/home"]);
+
   }
 
 }

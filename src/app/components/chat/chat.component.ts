@@ -27,7 +27,7 @@ export class ChatComponent {
   ngOnInit() {
     this.usuarioActual = this.authService.getCurrentUser();
     this.getMensajes();
-    if(this.usuarioActual == 'invitado@gmail.com') this.esInvitado = true;
+    //if(this.usuarioActual == 'invitado@gmail.com') this.esInvitado = true;
   }
 
   abrirChat(){
@@ -39,7 +39,7 @@ export class ChatComponent {
     const mensajesQuery = query(colMensajes, orderBy('fecha', 'asc'));
     const observable = collectionData(mensajesQuery, { idField: 'id' });
     this.sub = observable.subscribe((respuesta:any) => {
-      this.mensajes = respuesta;
+      this.mensajes = respuesta.reverse();
       console.log(respuesta);
     });
   }

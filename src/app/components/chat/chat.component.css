@@ -21,6 +21,8 @@
 }
 
 .chat-box {
+  flex-direction: column;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   width: 332px;
@@ -41,7 +43,11 @@
   height: 316px;
   width: 100%;
   padding-right: 5px;
-  overflow: auto;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  scroll-behavior: smooth;
+
 }
 
 .first-chat-container,

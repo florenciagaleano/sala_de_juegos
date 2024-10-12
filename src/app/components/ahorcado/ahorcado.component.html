@@ -12,14 +12,14 @@
         </div>
       </div>
             
-      <div class="row">
+      <div>
         <div class="col text-center">
           <img [src]="imagenAhorcado" alt="Imagen del ahorcado">
         </div>
       </div>
 
-      <div class="row">
-        <div class="col text-center">
+      <div>
+        <div id="palabra-oculta">
           <h1>{{palabraOculta}}</h1>
         </div>
       </div>
@@ -30,7 +30,8 @@
           <button
             (click)="comprobar(letra)"
             *ngFor="let letra of letras"
-            class="btn-teclado">
+            class="btn-teclado"
+            [ngClass]="{'letra-presionada': presionadas.has(letra)}">
             {{letra.toUpperCase()}}
           </button>
         </div>
@@ -63,7 +64,7 @@
           <h3>Intentos: <small>{{intentosFallidos}}</small></h3>
         </div>
       </div>
-      <app-logout></app-logout> 
+      <app-navbar></app-navbar> 
       <app-chat></app-chat>
   
 </body>

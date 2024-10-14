@@ -101,3 +101,48 @@ button:hover {
   cursor: pointer;
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    body {
+        background-image: url(../../../assets/login-mobile.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    #fondo-form {
+        padding: 20px;
+        width: 90%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .label {
+        font-size: 20px;
+    }
+
+    .field {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #comentario {
+        width: 100%;
+        height: 5rem;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 12px 100px;
+        width: 100%;
+    }
+
+    #btn_home {
+        font-size: 16px;
+    }
+
+    #encuestaEnviada {
+        width: 250px;
+        height: 250px;
+    }
+}

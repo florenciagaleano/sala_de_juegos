@@ -117,3 +117,31 @@ img {
   margin: 20px auto;
 }
 
+@media only screen and (max-width: 768px) {
+  #titulo {
+    font-size: 35px;
+  }
+
+  #palabra-oculta {
+    font-size: 15px;
+    padding: 8px 20px;
+  }
+
+  .btn-teclado {
+    font-size: 20px;
+    padding: 8px 16px;
+  }
+
+  #gano, #perdio {
+    width: 250px;
+    height: 150px;
+  }
+
+  img {
+    max-width: 100px;
+  }
+
+  #intentos {
+    font-size: 14px;
+  }
+}

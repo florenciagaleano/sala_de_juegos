@@ -8,11 +8,13 @@
 <body id="background">
   <h1 id="titulo"> Mayor o Menor </h1>
   <div *ngIf="currentCard && !gano && !perdio">
-    <img src="{{currentCard.image}}" alt="">
-    <div>
-      <div>La carta que sigue es...</div>
-      <button (click)="seleccionarMayor()" class="btn">Mayor</button>
-      <button (click)="seleccionarMenor()" class="btn">Menor</button>
+    <div id="juego">
+      <img src="{{currentCard.image}}" alt="">
+      <div>
+        <div>La carta que sigue es...</div>
+        <button (click)="seleccionarMayor()" class="btn">Mayor</button>
+        <button (click)="seleccionarMenor()" class="btn">Menor</button>
+      </div>  
     </div>
     <h2 id="intentos">Intentos: <small>{{ intentosFallidos }}</small><span> | </span> Contador: {{ contador }}</h2>
   </div>

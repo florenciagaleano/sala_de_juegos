@@ -1,0 +1,122 @@
+<body>
+    <form *ngIf="!encuestaEnviada" [formGroup]="encuestaForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <div id="fondo-form">
+            <h2 id="titulo">Contanos que pensas de la pagina!</h2>
+    
+                <label class="label" for="nombre">Nombre</label>
+                <input
+                type="text"
+                id="nombre"
+                formControlName="nombre"
+                [ngClass]="{ 'is-invalid': isFieldInvalid('nombre') }"
+                required class="field"
+                />
+                <div *ngIf="isFieldInvalid('nombre')">
+                Nombre invalido.
+                </div>
+    
+                <label class="label" for="apellido">Apellido</label>
+                <input
+                type="text"
+                id="apellido"
+                formControlName="apellido"
+                [ngClass]="{ 'is-invalid': isFieldInvalid('apellido') }"
+                required class="field"
+                />
+                <div *ngIf="isFieldInvalid('apellido')">
+                Apellido invalido.
+                </div>
+            
+                <div>
+                  <label class="label" for="edad">Edad</label>
+                  <input
+                    type="number"
+                    id="edad"
+                    formControlName="edad"
+                    [ngClass]="{ 'is-invalid': isFieldInvalid('edad') }"
+                    required class="field"
+                  />
+                  <div *ngIf="isFieldInvalid('edad')">
+                    Edad invalida.
+                  </div>
+                </div>
+            
+                <div>
+                    <label class="label" for="telefono">Telefono</label>
+                    <input
+                      type="number"
+                      id="telefono"
+                      formControlName="telefono"
+                      [ngClass]="{ 'is-invalid': isFieldInvalid('telefono') }"
+                      required class="field"
+                    />
+                    <div *ngIf="isFieldInvalid('telefono')">
+                      Telefono invalido.
+                    </div>
+                  </div>
+    
+                <div>
+                    <label class="label">Cual fue tu juego favorito?</label>
+                    <div class="option">
+                        <input formControlName="juego_fav" type="radio" id="ahorcado" name="juego_fav" value="ahorcado">      
+                        <label for="ahorcado">Ahorcado</label><br>
+                    </div>
+                    <div class="option">
+                        <input formControlName="juego_fav" type="radio" id="preguntados" name="juego_fav" value="preguntados">
+                        <label for="preguntados">Preguntados</label><br>      
+                    </div>
+                    <div class="option">
+                        <input formControlName="juego_fav" type="radio" id="cartas" name="juego_fav" value="cartas">
+                        <label for="cartas">Cartas</label>      
+                    </div>
+                    <div class="option">
+                        <input formControlName="juego_fav" type="radio" id="punteria" name="juego_fav" value="punteria">
+                        <label for="punteria">Punteria</label>      
+                    </div>
+                    <div *ngIf="isFieldInvalid('juego_fav')">
+                        Falta indicar juego favorito.
+                    </div>
+    
+              </div>
+              <div>
+                  <label class="label">Como conociste la pagina?</label>
+                  <select name="como_conociste" formControlName="como_conociste">
+                      <option value="recomendacion">Me la recomendaron</option>
+                      <option value="anuncio">Vi un anuncio</option>
+                      <option value="otro">Otro</option>
+                  </select>
+                  <div *ngIf="isFieldInvalid('como_conociste')">
+                    Falta indicar como conociste la pagina.
+                </div>
+
+              </div>
+              <div>
+                  <label class="label">Danos tu opinion general de la pagina</label>
+                  <textarea formControlName = "opinion" class="field" id="comentario"></textarea>
+                  <div *ngIf="isFieldInvalid('opinion')">
+                    Decinos tu opinion.
+                </div>
+
+                </div>
+      
+        <button type="submit" *ngIf="!encuestaEnviada" >
+          Enviar 💌
+        </button>
+        </div>
+    
+        <app-navbar></app-navbar> 
+        <app-chat></app-chat>
+        
+    </form>
+    <div class="row" *ngIf="encuestaEnviada" id="encuestaEnviada">
+        <div class="col text-center">
+            <h1>Gracias por darnos tu opinion! 🤗</h1>
+            <div class="container">
+            <button type="submit" (click)="goTo('home')" id="btn_home">Ir a home</button>
+            </div>        
+        </div>
+    </div>
+    
+    
+</body>

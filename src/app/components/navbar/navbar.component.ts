@@ -15,7 +15,9 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent {
 
   esHome : boolean = this.router.url == '/home';
-
+  esEncuesta : boolean = this.router.url == '/encuesta';
+  esQuienSoy : boolean = this.router.url == '/quien-soy';
+  
   constructor(private authService : AuthService, private router: Router) {}
 
   logout(){
@@ -29,7 +31,6 @@ export class NavbarComponent {
 
   irAHome(){
     this.router.navigate(["/home"]);
-
   }
 
 }

@@ -22,7 +22,20 @@ body{
     font-size: 50px;
 }
 
-#perdio{
+#juego{
+    padding: 2rem;
+    background-color: #f24ed1bf;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#perdio,#gano{
     background-color: rgba(238, 31, 190, 0.5);
     color: white;
     width: 300px;

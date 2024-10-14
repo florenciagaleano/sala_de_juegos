@@ -1,41 +1,45 @@
-#logout{
+#icon-container {
+    display: flex;
+    justify-content: flex-end;
     position: fixed;
-    left: 90%;
     top: 5%;
-    background-image:url(../../../assets/logout.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    border-radius: 90px;
-    border:none;
+    right: 0;
+    width: auto;
+    padding-right: 5%;
 }
 
-#about-us{
-    position: fixed;
-    left: 85%;
-    top: 5%;
-    background-image:url(../../../assets/about-us.png);
+#icon-container button {
+    background-color: transparent; 
     background-size: contain;
     background-repeat: no-repeat;
     width: 50px;
     height: 50px;
     cursor: pointer;
     border-radius: 90px;
-    border:none;
+    border: none;
+    margin-left: 1.2rem;
+    padding: 0;
+    box-shadow: none; 
 }
 
-#home{
-    position: fixed;
-    left: 80%;
-    top: 5%;
-    background-image:url(../../../assets/home.png);
+#encuesta, #home, #about-us, #logout {
+    background-color: transparent;
     background-size: contain;
     background-repeat: no-repeat;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    border-radius: 90px;
-    border:none;
+}
+
+#home {
+    background-image: url(../../../assets/home.png);
+}
+
+#about-us {
+    background-image: url(../../../assets/about-us.png);
+}
+
+#encuesta {
+    background-image: url(../../../assets/encuesta.png);
+}
+
+#logout {
+    background-image: url(../../../assets/logout.png);
 }

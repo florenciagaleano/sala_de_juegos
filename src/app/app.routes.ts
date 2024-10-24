@@ -16,6 +16,7 @@ export const routes: Routes = [
     { path: 'preguntados', loadComponent: () => import('./components/preguntados/preguntados.component').then(mod => mod.PreguntadosComponent)},
     { path: 'encuesta', loadComponent: () => import('./components/encuesta/encuesta.component').then(mod => mod.EncuestaComponent)},
     { path: 'punteria', loadComponent: () => import('./components/punteria/punteria.component').then(mod => mod.PunteriaComponent)},
+    { path: 'resultados', loadComponent: () => import('./components/resultados/resultados.component').then(mod => mod.ResultadosComponent)},
     { path: '**', component: PageNotFoundComponent},
     
 

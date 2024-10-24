@@ -35,19 +35,26 @@ body{
     color: white;
 }
 
-#perdio,#gano{
-    background-color: rgba(238, 31, 190, 0.5);
-    color: white;
-    width: 300px;
-    height: 200px;
-    text-align: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#gano,
+#perdio {
+  background-color: rgba(238, 31, 190, 0.5);
+  color: white;
+  width: 450px;
+  height: 200px;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#perdio.show-results,
+#gano.show-results {
+  width: 600px;
+  height: auto;
 }
 
 #intentos{
@@ -72,7 +79,6 @@ body{
     padding: 10px 20px 10px 20px;
     margin: 5px;
     text-decoration: none;  
-    font-family: 'Courier New', Courier, monospace;
 }
 
 .btn:hover{

@@ -1,0 +1,20 @@
+<div class="table-container">
+    <table class="puntos-table">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Juego</th>
+                <th>Puntos</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let punto of top5Puntos">
+                <td>{{ punto.usuario }}</td>
+                <td>{{ punto.juego }}</td>
+                <td>{{ punto.puntos }}</td>
+                <td>{{ formatearFecha(punto.fecha) }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

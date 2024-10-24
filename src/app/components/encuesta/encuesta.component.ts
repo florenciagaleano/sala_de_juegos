@@ -87,7 +87,6 @@ export class EncuestaComponent implements OnInit, OnDestroy {
         this.encuestas = respuesta;
 
         if (this.encuestas.length === 0) {
-          // Si no existe una encuesta para el usuario, agregar una nueva
           addDoc(col, {
             "usuario": this.currentUser,
             "nombre": this.nombre,

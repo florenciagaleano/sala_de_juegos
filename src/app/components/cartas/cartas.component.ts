@@ -6,11 +6,12 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { ChatComponent } from '../chat/chat.component';
 import { Router } from '@angular/router';
 import { PuntajeService } from '../../services/puntaje/puntaje.service';
+import { ResultadosComponent } from '../resultados/resultados.component';
 
 @Component({
   selector: 'app-cartas',
   standalone: true,
-  imports: [FormsModule,CommonModule,NavbarComponent,ChatComponent],
+  imports: [FormsModule,CommonModule,NavbarComponent,ChatComponent,ResultadosComponent],
   templateUrl: './cartas.component.html',
   styleUrl: './cartas.component.css'
 })
@@ -24,6 +25,7 @@ export class CartasComponent {
   gano = false;
   contador = 0;
   cartasMostradas : Set<any> = new Set();
+  resultados : boolean = false;
 
   constructor(private cardService: CartasService, private router : Router, private puntajeService: PuntajeService) { }
 
@@ -89,6 +91,10 @@ export class CartasComponent {
     if (path === 'home') {
       this.router.navigate(['/home']);
     }
+  }
+
+  verResultados() {
+    this.resultados = true;
   }
 
 }

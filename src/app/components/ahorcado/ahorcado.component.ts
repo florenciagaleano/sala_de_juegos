@@ -5,6 +5,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { ChatComponent } from '../chat/chat.component';
 import { Router } from '@angular/router';
 import { PuntajeService } from '../../services/puntaje/puntaje.service';
+import { ResultadosComponent } from '../resultados/resultados.component';
 
 @Component({
   selector: 'app-ahorcado',
@@ -13,7 +14,8 @@ import { PuntajeService } from '../../services/puntaje/puntaje.service';
     FormsModule,
     CommonModule,
     NavbarComponent,
-    ChatComponent
+    ChatComponent,
+    ResultadosComponent
   ],
   providers: [],
   templateUrl: './ahorcado.component.html',
@@ -30,6 +32,7 @@ export class AhorcadoComponent {
   perdio = false;
   intentosFallidos = "💗 💗 💗 💗 💗 💗 ";
   imagenAhorcado = '../../../assets/ahorcado/ahorcado_0.png';
+  resultados : boolean = false;
   presionadas: Set<string> = new Set();
   letras = [
     "a",
@@ -133,4 +136,9 @@ export class AhorcadoComponent {
     this.imagenAhorcado = '../../../assets/ahorcado/ahorcado_0.png';
     this.presionadas.clear();
   }
+
+  verResultados() {
+    this.resultados = true;
+  }
+
 }

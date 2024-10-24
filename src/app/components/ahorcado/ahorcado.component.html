@@ -12,18 +12,17 @@
         </div>
       </div>
             
-      <div>
+      <div *ngIf="!gano && !perdio">
         <div class="col text-center">
           <img [src]="imagenAhorcado" alt="Imagen del ahorcado">
         </div>
       </div>
 
-      <div>
+      <div *ngIf="!gano && !perdio">
         <div id="palabra-oculta">
           <h1>{{palabraOculta}}</h1>
         </div>
       </div>
-      
       
       <div class="row" *ngIf="!gano && !perdio" >
         <div class="col text-center" id="teclado">
@@ -36,35 +35,43 @@
           </button>
         </div>
       </div>
-      <div class="row" *ngIf="gano" id="gano">
+      
+      <div class="row" *ngIf="gano" id="gano" [ngClass]="{ 'show-results': resultados }">
         <div class="col text-center">
-          <h1>Adivinaste! 🤗</h1>
+          <h1>Ganaste! 🤗</h1>
           <div class="container">
             <button type="submit" (click)="goTo('home')">Ir a home</button>
             <span>|</span>
-            <button type="submit" (click)="reiniciar()">Volver a jugar</button>  
-          </div>        
-        </div>
-      </div>
-      <div class="row" *ngIf="perdio" id="perdio">
-        <div class="col text-center">
-          <h3>Perdiste 💔</h3>
-          <h4>La palabra correcta era: {{palabra}}</h4>
-          <div class="container">
-            <button type="submit" (click)="goTo('home')">Ir a home</button>
-            <span>|</span>
-            <button type="submit" (click)="reiniciar()">Volver a jugar</button>  
-          </div>    
-    
+            <button type="submit" (click)="goTo()">Volver a jugar</button>
+            <span *ngIf=" !resultados">|</span>
+            <button *ngIf=" !resultados" type="submit" (click)="verResultados()">Ver resultados</button>
+          </div>
+          <app-resultados *ngIf="resultados" [juego]="'Ahorcado'"></app-resultados>
         </div>
       </div>
       
-      <div class="row" id="intentos">
+      <div class="row" *ngIf="perdio" id="perdio" [ngClass]="{ 'show-results': resultados }">
+        <div class="col text-center">
+          <h1>Perdiste 💔</h1>
+          <div class="container">
+            <button type="submit" (click)="goTo('home')">Ir a home</button>
+            <span>|</span>
+            <button type="submit" (click)="reiniciar()">Volver a jugar</button>
+            <span *ngIf=" !resultados">|</span>
+            <button *ngIf=" !resultados" type="submit" (click)="verResultados()">Ver resultados</button>
+          </div>
+          <app-resultados *ngIf="resultados" [juego]="'Ahorcado'"></app-resultados>
+        </div>
+      </div>
+        
+      <app-resultados [juego]="'Ahorcado'"></app-resultados>
+
+      <div class="row" id="intentos" *ngIf="!gano && !perdio">
         <div class="col text-center">
           <h3>Intentos: <small>{{intentosFallidos}}</small></h3>
         </div>
       </div>
+      
       <app-navbar></app-navbar> 
       <app-chat></app-chat>
-  
 </body>

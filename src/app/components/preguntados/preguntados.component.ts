@@ -7,11 +7,12 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { ChatComponent } from '../chat/chat.component';
 import { Router } from '@angular/router';
 import { PuntajeService } from '../../services/puntaje/puntaje.service';
+import { ResultadosComponent } from '../resultados/resultados.component';
 
 @Component({
   selector: 'app-preguntados',
   standalone: true,
-  imports: [CommonModule,FormsModule,NavbarComponent,ChatComponent],
+  imports: [CommonModule,FormsModule,NavbarComponent,ChatComponent,ResultadosComponent],
   templateUrl: './preguntados.component.html',
   styleUrl: './preguntados.component.css'
 })
@@ -27,6 +28,7 @@ export class PreguntadosComponent {
   gano = false;
   contador = 0;
   cargando = false;
+  resultados : boolean = false;
 
   constructor(private peliculasService: PeliculasService, private router : Router, private puntajeService : PuntajeService) {}
 
@@ -86,5 +88,8 @@ export class PreguntadosComponent {
     }
   }
 
+  verResultados() {
+    this.resultados = true;
+  }
 
 }

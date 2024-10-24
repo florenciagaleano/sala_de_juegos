@@ -5,11 +5,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { ChatComponent } from '../chat/chat.component';
 import { PuntajeService } from '../../services/puntaje/puntaje.service';
+import { ResultadosComponent } from '../resultados/resultados.component';
 
 @Component({
   selector: 'app-punteria',
   standalone: true,
-  imports: [FormsModule, CommonModule,NavbarComponent,ChatComponent],
+  imports: [FormsModule, CommonModule,NavbarComponent,ChatComponent,ResultadosComponent],
   templateUrl: './punteria.component.html',
   styleUrl: './punteria.component.css'
 })
@@ -27,6 +28,7 @@ export class PunteriaComponent {
   perdio: boolean = false;
   gano: boolean = false;
   contador: number = 0;
+  resultados : boolean = false;
 
   juegoIniciado: boolean = false;
 
@@ -64,7 +66,7 @@ export class PunteriaComponent {
     this.classObjetivo = 'circulo';
     this.gano = false;
     this.perdio = false;
-
+    this.resultados = false;
     this.CrearObjetivoAleatorio(0);
   }
 
@@ -93,7 +95,7 @@ export class PunteriaComponent {
       this.perdio = true;
     } else if (this.contador >= 30) {
       this.gano = true;
-      this.puntajeService.guardarPuntos("Punteria", (3 - this.intentos).toString()); //guardo la cantidad de vidas que quedaron como puntos
+      if(this.gano) this.puntajeService.guardarPuntos("Punteria", (3 - this.intentos).toString()); //guardo la cantidad de vidas que quedaron como puntos
 
     }
 
@@ -106,5 +108,9 @@ export class PunteriaComponent {
     if (path === 'home') {
       this.router.navigate(['/home']);
     }
+  }
+
+  verResultados() {
+    this.resultados = true;
   }
 }

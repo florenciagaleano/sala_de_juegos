@@ -19,24 +19,31 @@
       Intentos: <small>{{ intentosFallidos }}</small><span> | </span> Contador: {{ contador }}
     </div>
   </div>
-  <div class="row" *ngIf="gano" id="gano">
+  <div class="row" *ngIf="gano" id="gano" [ngClass]="{ 'show-results': resultados }">
     <div class="col text-center">
-      <h1>Ganaste! 🤗</h1>
+      <h2>Ganaste! 🤗</h2>
       <div class="container">
         <button type="submit" (click)="goTo('home')">Ir a home</button>
         <span>|</span>
-        <button type="submit" (click)="goTo()">Volver a jugar</button>  
-      </div>    
-    </div>
+        <button type="submit" (click)="goTo()">Volver a jugar</button>
+        <span *ngIf=" !resultados">|</span>
+        <button *ngIf=" !resultados" type="submit" (click)="verResultados()">Ver resultados</button>
+      </div>
+      <app-resultados *ngIf="resultados" [juego]="'Preguntados'"></app-resultados>
+</div>
   </div>
-  <div class="row" *ngIf="perdio" id="perdio">
+  
+  <div class="row" *ngIf="perdio" id="perdio" [ngClass]="{ 'show-results': resultados }">
     <div class="col text-center">
-      <h1>Perdiste 💔</h1>
+      <h2>Perdiste 💔</h2>
       <div class="container">
         <button type="submit" (click)="goTo('home')">Ir a home</button>
         <span>|</span>
-        <button type="submit" (click)="reiniciar()">Volver a jugar</button>  
-      </div>    
+        <button type="submit" (click)="reiniciar()">Volver a jugar</button>
+        <span *ngIf=" !resultados">|</span>
+        <button *ngIf=" !resultados" type="submit" (click)="verResultados()">Ver resultados</button>
+      </div>
+      <app-resultados *ngIf="resultados" [juego]="'Preguntados'"></app-resultados>
     </div>
   </div>
 

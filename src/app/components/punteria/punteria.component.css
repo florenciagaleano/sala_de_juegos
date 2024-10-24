@@ -81,7 +81,7 @@ p {
 #perdio {
   background-color: rgba(238, 31, 190, 0.5);
   color: white;
-  width: 300px;
+  width: 450px;
   height: 200px;
   text-align: center;
   position: fixed;
@@ -91,6 +91,12 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#perdio.show-results,
+#gano.show-results {
+  width: 600px;
+  height: auto;
 }
 
 #intentos {

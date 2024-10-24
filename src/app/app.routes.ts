@@ -4,6 +4,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HomeComponent } from './components/home/home.component';
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { AdminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: "full" },
@@ -17,6 +18,8 @@ export const routes: Routes = [
     { path: 'encuesta', loadComponent: () => import('./components/encuesta/encuesta.component').then(mod => mod.EncuestaComponent)},
     { path: 'punteria', loadComponent: () => import('./components/punteria/punteria.component').then(mod => mod.PunteriaComponent)},
     { path: 'resultados', loadComponent: () => import('./components/resultados/resultados.component').then(mod => mod.ResultadosComponent)},
+    { path: 'encuestas', loadComponent: () => import('./components/listado-encuestas/listado-encuestas.component').then(mod => mod.ListadoEncuestasComponent),
+        canActivate: [AdminGuard],},
     { path: '**', component: PageNotFoundComponent},
     
 

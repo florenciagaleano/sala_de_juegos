@@ -12,8 +12,14 @@ export class AuthService {
     return createUserWithEmailAndPassword(this.auth, email, clave);
   }
 
-  guardarUsuario(mail : string){
-    localStorage.setItem("usuarioActual",mail);
+  guardarUsuario(usuario : string){
+    localStorage.setItem("usuarioActual",usuario);
+    localStorage.setItem("esAdmin",usuario != 'floradmin@gmail.com' ? "false" : "true");
+
+  }
+
+  getIsAdmin(){
+    return localStorage.getItem("esAdmin");
   }
 
   getCurrentUser() {

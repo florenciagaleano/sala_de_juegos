@@ -1,0 +1,56 @@
+#background {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-image: url(../../../assets/login-desktop2.jpg);
+    background-repeat: no-repeat;
+}
+
+h1{
+    padding-top: 15px;
+    color: white !important;
+    font-family: "Jersey 10 Charted", sans-serif;
+    font-size: 50px;
+    display: inline-block;   
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.encuestas-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.encuestas-table th,
+.encuestas-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #b307ad;
+    color: black;
+}
+
+.encuestas-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+}
+
+.encuestas-table td {
+    background-color: #fff;
+}
+
+.encuestas-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

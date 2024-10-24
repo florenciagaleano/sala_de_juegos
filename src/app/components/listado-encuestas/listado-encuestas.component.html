@@ -1,0 +1,42 @@
+<meta charset="utf-8" />
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Jersey+10+Charted&family=Jersey+15&family=Jersey+20+Charted&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+</head>
+<body id="background">
+    <app-navbar></app-navbar>
+    <h1>Encuestas</h1>
+    <div class="table-container">
+        <table class="encuestas-table">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>Teléfono</th>
+                    <th>Juego Favorito</th>
+                    <th>¿Cómo Conociste?</th>
+                    <th>Opinión</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let encuesta of encuestas">
+                    <td>{{ encuesta.usuario }}</td>
+                    <td>{{ encuesta.nombre }}</td>
+                    <td>{{ encuesta.apellido }}</td>
+                    <td>{{ encuesta.edad }}</td>
+                    <td>{{ encuesta.telefono }}</td>
+                    <td>{{ encuesta.juego_fav }}</td>
+                    <td>{{ encuesta.como_conociste }}</td>
+                    <td>{{ encuesta.opinion }}</td>
+                    <td>{{ formatearFecha(encuesta.fecha) }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <app-chat></app-chat>
+</body>

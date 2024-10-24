@@ -123,8 +123,11 @@ export class EncuestaComponent implements OnInit, OnDestroy {
   }
 
   goTo(path: string = '') {
-    if (path === 'home') {
+    if (path === 'encuestas') {
+      this.router.navigate(['/encuestas']);
+    }else if(path === 'home'){
       this.router.navigate(['/home']);
+
     }
   }
 }
